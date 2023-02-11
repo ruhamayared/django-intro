@@ -8,9 +8,13 @@ from django.shortcuts import HttpResponseRedirect
 def index(request):
     
     if (request.method == "POST"):
-        form = TodoForm(request.POST)
-        print(form)
-        print(request.POST.get("title"))
+        # form = TodoForm(request.POST)
+        # print(form)
+        # print(request.POST.get("title"))
+        Todo.objects.create(
+            title=request.POST.get("title"),
+            details = request.POST.get("details")
+            )
         return HttpResponseRedirect("/todo/")
         
     if (request.method == "GET"):
@@ -19,6 +23,8 @@ def index(request):
         return render(request, "index.html", {"todos": todos, "form": form})
         
         
-        
+def destroy(request, id):
+    Todo.object.delete(id)
+    return HttpResponseRedirect("/todo/")
         
 

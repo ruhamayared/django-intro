@@ -19,5 +19,6 @@ from todo.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('todo/', index)
+    path('todo/', index),
+    path('todo/delete/<int:id>/')
 ]

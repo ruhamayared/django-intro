@@ -2,8 +2,13 @@
 <ul>
   {% for todo in todos %}
   <li>{{todo.title}}</li>
+  <form action="/todo/delete/{{todo.id}}/" method="post>">
+    <button>Delete</button>
+  </form>
   {% endfor %}
 </ul>
 
-<form action="/todo/" method="post">{{form}}</form>
-<button>Submit</button>
+<form action="/todo/" method="post">
+  {{form}}
+  <button>Submit</button>
+</form>
