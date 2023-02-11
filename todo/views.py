@@ -24,7 +24,7 @@ def index(request):
         
         
 def destroy(request, id):
-    Todo.object.delete(id)
+    Todo.objects.get(pk=id).delete()
     return HttpResponseRedirect("/todo/")
         
 
